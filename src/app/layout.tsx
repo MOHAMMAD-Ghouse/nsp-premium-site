@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
+import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppButton } from "@/components/whatsapp-button";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${outfit.variable} ${cormorant.variable} h-full`}
     >
       <body className="min-h-full font-body text-foreground">
+        <JsonLd />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

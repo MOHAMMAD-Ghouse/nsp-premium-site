@@ -6,15 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { SERVICES, whatsappUrl } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 type FormState = {
   fullName: string;
@@ -209,49 +203,53 @@ export function BookingForm() {
         </div>
 
         <Field label="Service required *" htmlFor="service">
-          <Select
+          <select
+            id="service"
+            name="service"
+            required
+            aria-required="true"
             value={form.service}
-            onValueChange={(value) => update("service", value ?? "")}
+            onChange={(e) => update("service", e.target.value)}
+            className={cn(
+              "h-10 w-full rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+            )}
           >
-            <SelectTrigger id="service" className="w-full" aria-required="true">
-              <SelectValue placeholder="Select a service" />
-            </SelectTrigger>
-            <SelectContent>
-              {SERVICES.map((service) => (
-                <SelectItem key={service.id} value={service.title}>
-                  {service.title}
-                </SelectItem>
-              ))}
-              <SelectItem value="Multiple services">Multiple services</SelectItem>
-              <SelectItem value="Not sure — please advise">
-                Not sure — please advise
-              </SelectItem>
-            </SelectContent>
-          </Select>
+            <option value="" disabled>
+              Select a service
+            </option>
+            {SERVICES.map((service) => (
+              <option key={service.id} value={service.title}>
+                {service.title}
+              </option>
+            ))}
+            <option value="Multiple services">Multiple services</option>
+            <option value="Not sure — please advise">
+              Not sure — please advise
+            </option>
+          </select>
         </Field>
 
         <Field label="Collection or drop-off *" htmlFor="preference">
-          <Select
+          <select
+            id="preference"
+            name="preference"
+            required
+            aria-required="true"
             value={form.preference}
-            onValueChange={(value) => update("preference", value ?? "")}
+            onChange={(e) => update("preference", e.target.value)}
+            className={cn(
+              "h-10 w-full rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+            )}
           >
-            <SelectTrigger
-              id="preference"
-              className="w-full"
-              aria-required="true"
-            >
-              <SelectValue placeholder="Choose preference" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Collection & delivery">
-                Collection &amp; delivery
-              </SelectItem>
-              <SelectItem value="Drive-up drop-off">Drive-up drop-off</SelectItem>
-              <SelectItem value="Shop collection later">
-                Shop collection later
-              </SelectItem>
-            </SelectContent>
-          </Select>
+            <option value="" disabled>
+              Choose preference
+            </option>
+            <option value="Collection & delivery">
+              Collection &amp; delivery
+            </option>
+            <option value="Drive-up drop-off">Drive-up drop-off</option>
+            <option value="Shop collection later">Shop collection later</option>
+          </select>
         </Field>
 
         <Field label="Preferred date *" htmlFor="preferredDate">

@@ -2,6 +2,7 @@ import { AboutSection } from "@/components/sections/about";
 import { BookingSection } from "@/components/sections/booking";
 import { CollectionSection } from "@/components/sections/collection";
 import { ContactSection } from "@/components/sections/contact";
+import { CtaBanner } from "@/components/sections/cta-banner";
 import { DriveUpSection } from "@/components/sections/drive-up";
 import { HeroSection } from "@/components/sections/hero";
 import { HowItWorksSection } from "@/components/sections/how-it-works";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <CollectionSection />
       <HowItWorksSection />
       <WhyChooseSection />
+      <CtaBanner />
       <BookingSection />
       <ContactSection />
     </>
