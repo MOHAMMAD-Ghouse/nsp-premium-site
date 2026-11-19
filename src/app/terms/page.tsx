@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -63,9 +64,9 @@ export default function TermsPage() {
         </p>
 
         <p className="mt-10">
-          <a href="/#home" className="text-gold hover:underline">
+          <Link href="/#home" className="text-gold hover:underline">
             Return home
-          </a>
+          </Link>
         </p>
       </article>
     </div>
