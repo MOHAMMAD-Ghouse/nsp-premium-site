@@ -13,9 +13,23 @@ import {
 import { BUSINESS, NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+function scrollToSection(id: string) {
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  const header = document.querySelector("header");
+  const headerOffset = (header?.getBoundingClientRect().height ?? 72) + 12;
+  const top =
+    target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  window.history.replaceState(null, "", `#${id}`);
+}
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [pendingSection, setPendingSection] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -23,6 +37,17 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (open || !pendingSection) return;
+
+    const timer = window.setTimeout(() => {
+      scrollToSection(pendingSection);
+      setPendingSection(null);
+    }, 320);
+
+    return () => window.clearTimeout(timer);
+  }, [open, pendingSection]);
 
   return (
     <header
@@ -59,7 +84,12 @@ export function SiteHeader() {
             Book Now
           </a>
 
-          <Sheet open={open} onOpenChange={setOpen}>
+          <Sheet
+            open={open}
+            onOpenChange={(next) => {
+              setOpen(next);
+            }}
+          >
             <SheetTrigger
               className="inline-flex size-9 items-center justify-center rounded-full border border-gold/40 bg-ink/40 text-cream transition hover:bg-ink hover:text-gold lg:hidden"
               aria-label="Open menu"
@@ -82,19 +112,8 @@ export function SiteHeader() {
                     href={link.href}
                     onClick={(event) => {
                       event.preventDefault();
-                      const id = link.href.replace("#", "");
+                      setPendingSection(link.href.replace("#", ""));
                       setOpen(false);
-                      window.setTimeout(() => {
-                        const target = document.getElementById(id);
-                        if (!target) return;
-                        const headerOffset = 88;
-                        const top =
-                          target.getBoundingClientRect().top +
-                          window.scrollY -
-                          headerOffset;
-                        window.scrollTo({ top, behavior: "smooth" });
-                        window.history.replaceState(null, "", link.href);
-                      }, 260);
                     }}
                     className="rounded-lg px-3 py-3 text-sm tracking-[0.12em] text-cream/90 uppercase transition hover:bg-cream/5 hover:text-gold"
                   >
