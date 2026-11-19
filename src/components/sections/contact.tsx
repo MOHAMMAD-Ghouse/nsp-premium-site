@@ -63,7 +63,7 @@ export function ContactSection() {
                 </li>
               </ul>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6 mb-2 flex flex-col gap-3 sm:mb-0 sm:flex-row">
                 <a
                   href={BUSINESS.maps.directions}
                   target="_blank"
