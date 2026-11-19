@@ -36,6 +36,36 @@ The booking and contact forms prepare a clear confirmation screen, then hand off
 
 WhatsApp number used: `+44 7447 588177`
 
+## Deploy online
+
+### Option A — Vercel (recommended for Next.js)
+
+1. Push this repository to GitHub/GitLab/Bitbucket (or connect the existing remote).
+2. Go to [vercel.com](https://vercel.com) → **Add New Project**.
+3. Import the repository.
+4. Leave the defaults (`npm run build`, Next.js framework preset).
+5. Click **Deploy**.
+
+Your live URL will look like `https://your-project.vercel.app`. You can then attach a custom domain such as `newsteamandpress.co.uk` in Vercel → Domains.
+
+### Option B — Netlify
+
+1. Import the repository in Netlify.
+2. Build command: `npm run build`
+3. Publish directory: `.next` is handled by the Next.js runtime — use the Netlify Next.js runtime / `@netlify/plugin-nextjs`.
+
+### Option C — Any Node host
+
+```bash
+npm install
+npm run build
+npm run start
+```
+
+Serve on the host’s assigned port. Set any reverse proxy (Nginx/Caddy) to that process.
+
+No backend secrets are required for the current WhatsApp handoff booking flow.
+
 ## Stack
 
 - Next.js (App Router)
