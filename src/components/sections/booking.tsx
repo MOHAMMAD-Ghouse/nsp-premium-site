@@ -10,7 +10,7 @@ export function BookingSection() {
             align="left"
             eyebrow="Book Now"
             title="Request a collection or drop-off."
-            description="Share a few details and continue on WhatsApp so we can confirm your booking. Free pick-up and delivery are subject to service-area availability."
+            description="Share a few details, then continue on WhatsApp so our team can confirm availability. Free pick-up and delivery depend on service area."
           />
           <div className="mt-8 space-y-4 text-sm leading-relaxed text-muted-foreground">
             <p>
@@ -23,9 +23,16 @@ export function BookingSection() {
               </a>{" "}
               or message us on WhatsApp.
             </p>
-            <p>
-              Opening hours: Monday – Saturday, 8:30 AM – 5:00 PM.
-            </p>
+            <p>Opening hours: Monday – Saturday, 8:30 AM – 5:00 PM.</p>
+            <div className="rounded-2xl border border-gold/25 bg-card/80 p-5">
+              <p className="text-[0.68rem] tracking-[0.2em] text-gold uppercase">
+                What happens next
+              </p>
+              <p className="mt-2 text-ink">
+                You send the request on WhatsApp. We confirm the collection or
+                drop-off details before anything is booked.
+              </p>
+            </div>
           </div>
         </div>
         <BookingForm />

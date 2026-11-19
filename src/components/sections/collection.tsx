@@ -9,7 +9,7 @@ const points = [
   "Share your collection address and contact number",
   "Select the services you need",
   "Add special instructions for delicate items",
-  "Submit your booking request for confirmation",
+  "Send your request so our team can confirm availability",
 ];
 
 export function CollectionSection() {

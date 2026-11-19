@@ -24,14 +24,38 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <p
+        <div
           className={cn(
-            "mb-4 text-[0.7rem] font-semibold tracking-[0.28em] uppercase",
-            tone === "dark" ? "text-gold-soft" : "text-gold",
+            "mb-5 flex items-center gap-3",
+            align === "center" && "justify-center",
           )}
         >
-          {eyebrow}
-        </p>
+          <span
+            className={cn(
+              "hidden h-px w-8 sm:block",
+              tone === "dark" ? "bg-gold/50" : "bg-gold/60",
+              align === "center" && "order-1",
+            )}
+            aria-hidden
+          />
+          <p
+            className={cn(
+              "text-[0.7rem] font-semibold tracking-[0.28em] uppercase",
+              tone === "dark" ? "text-gold-soft" : "text-gold",
+              align === "center" && "order-2",
+            )}
+          >
+            {eyebrow}
+          </p>
+          <span
+            className={cn(
+              "hidden h-px w-8 sm:block",
+              tone === "dark" ? "bg-gold/50" : "bg-gold/60",
+              align === "center" ? "order-3" : "hidden",
+            )}
+            aria-hidden
+          />
+        </div>
       ) : null}
       <h2
         className={cn(

@@ -70,9 +70,18 @@ export function ContactForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="rounded-[1.35rem] border border-gold/25 bg-card p-6 soft-shadow"
+      className="rounded-[1.35rem] border border-gold/25 bg-card p-6 soft-shadow sm:p-7"
       noValidate
     >
+      <div className="mb-5 rounded-xl border border-gold/20 bg-cream-deep/50 px-4 py-3">
+        <p className="text-[0.68rem] font-semibold tracking-[0.18em] text-gold uppercase">
+          Enquiry
+        </p>
+        <p className="mt-1.5 text-sm text-muted-foreground">
+          Prepare a message and continue on WhatsApp. We reply during opening
+          hours.
+        </p>
+      </div>
       <div className="grid gap-4">
         <div className="space-y-2">
           <Label htmlFor="contact-name">Full name *</Label>

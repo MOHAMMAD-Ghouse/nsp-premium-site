@@ -3,7 +3,6 @@
 import { FormEvent, useMemo, useState } from "react";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -132,10 +131,15 @@ export function BookingForm() {
       className="rounded-[1.5rem] border border-gold/25 bg-card p-6 soft-shadow sm:p-8"
       noValidate
     >
-      <div className="mb-6 rounded-xl border border-gold/20 bg-cream-deep/60 px-4 py-3 text-sm text-muted-foreground">
-        Demo booking form with WhatsApp handoff — we confirm every request by
-        message or phone. Free collection &amp; delivery is subject to
-        service-area availability.
+      <div className="mb-6 rounded-xl border border-gold/25 bg-[linear-gradient(135deg,rgba(198,160,70,0.12),rgba(247,242,233,0.9))] px-4 py-4">
+        <p className="text-[0.68rem] font-semibold tracking-[0.2em] text-gold uppercase">
+          Booking request
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          This form prepares a WhatsApp message for our team. It does not
+          confirm a booking automatically. Free collection &amp; delivery is
+          subject to service-area availability.
+        </p>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
@@ -273,16 +277,22 @@ export function BookingForm() {
         </div>
       </div>
 
-      <div className="mt-5 flex items-start gap-3">
-        <Checkbox
+      <label
+        htmlFor="callback"
+        className="mt-5 flex cursor-pointer items-start gap-3 rounded-xl border border-gold/20 bg-cream/50 px-4 py-3 transition hover:border-gold/40"
+      >
+        <input
           id="callback"
+          name="callback"
+          type="checkbox"
           checked={form.callback}
-          onCheckedChange={(checked) => update("callback", checked === true)}
+          onChange={(e) => update("callback", e.target.checked)}
+          className="mt-1 size-4 accent-[#c6a046]"
         />
-        <Label htmlFor="callback" className="leading-snug font-normal">
+        <span className="text-sm leading-snug text-ink">
           Please call me back to confirm this booking request
-        </Label>
-      </div>
+        </span>
+      </label>
 
       {error ? (
         <p className="mt-4 text-sm text-destructive" role="alert">
