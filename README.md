@@ -16,10 +16,17 @@ Premium website for **NEW STEAM & PRESS CO. LTD** — professional dry cleaning 
 
 ```bash
 npm install
-npm run dev -- --port 3847
+npm run dev
 ```
 
-Open [http://127.0.0.1:3847](http://127.0.0.1:3847).
+The app serves on port **3847** (`http://127.0.0.1:3847`).
+
+### Preview in Cursor Web
+
+1. Open this project in Cursor Web (`smarty-dev/nsp-premium-site`).
+2. In the agent/terminal, run `npm install` then `npm run dev` if it is not already running.
+3. Open the **Ports** / **Simple Browser** preview for port **3847**, or open `http://127.0.0.1:3847` in Cursor’s browser panel.
+4. If `npm` reports `ENOENT`, make sure your terminal is in the repository root (where `package.json` lives), then run `npm install` again.
 
 ## Scripts
 
