@@ -2,7 +2,7 @@ import { BUSINESS, whatsappUrl } from "@/lib/constants";
 
 export function CtaBanner() {
   return (
-    <section className="relative overflow-hidden bg-ink px-5 py-16 text-cream sm:px-8 lg:px-12">
+    <section className="relative overflow-hidden bg-ink px-5 py-16 text-cream sm:px-8 lg:px-12" style={{ scrollMarginTop: "6rem" }}>
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{

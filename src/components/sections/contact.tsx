@@ -15,7 +15,7 @@ export function ContactSection() {
 
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
           <div className="space-y-6">
-            <div className="rounded-[1.35rem] border border-gold/25 bg-card p-6 soft-shadow">
+            <div className="rounded-[1.35rem] border border-gold/25 bg-card p-6 pt-7 soft-shadow sm:p-7">
               <h3 className="font-display text-2xl text-ink">
                 {BUSINESS.name}
               </h3>
@@ -86,7 +86,7 @@ export function ContactSection() {
               <iframe
                 title="Google Map for New Steam & Press Co. Ltd, 181 Vale Road, Stoneleigh"
                 src={BUSINESS.maps.embed}
-                className="h-72 w-full border-0 grayscale-[20%] contrast-[1.05]"
+                className="h-64 w-full border-0 grayscale-[15%] contrast-[1.04] sm:h-72 md:h-80"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen

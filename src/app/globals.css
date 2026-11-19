@@ -148,7 +148,12 @@
   }
 
   .section-pad {
+    scroll-margin-top: 6rem;
     @apply px-5 py-20 sm:px-8 md:py-28 lg:px-12;
+  }
+
+  .premium-field {
+    @apply h-11 w-full rounded-xl border border-gold/25 bg-cream/80 px-3.5 text-sm text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] outline-none transition placeholder:text-muted-foreground focus-visible:border-gold focus-visible:ring-3 focus-visible:ring-gold/25;
   }
 
   .container-narrow {

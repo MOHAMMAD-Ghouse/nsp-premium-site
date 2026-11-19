@@ -17,27 +17,27 @@ export function ServicesSection() {
           {SERVICES.map((service, index) => (
             <article
               key={service.id}
-              className="group overflow-hidden rounded-[1.35rem] border border-gold/15 bg-ink/50 soft-shadow transition duration-500 hover:-translate-y-1 hover:border-gold/40"
+              className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] border border-gold/15 bg-ink/50 soft-shadow transition duration-500 hover:-translate-y-1 hover:border-gold/40"
               style={{ animationDelay: `${index * 40}ms` }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[5/4] overflow-hidden">
                 <Image
                   src={service.image}
                   alt={service.alt}
                   fill
-                  className="object-cover transition duration-700 group-hover:scale-105"
+                  className="object-cover object-center transition duration-700 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                 />
                 <div
-                  className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"
+                  className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
                   aria-hidden
                 />
               </div>
-              <div className="space-y-4 p-6">
+              <div className="flex flex-1 flex-col space-y-4 p-6">
                 <h3 className="font-display text-2xl text-cream">
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-cream/65">
+                <p className="flex-1 text-sm leading-relaxed text-cream/65">
                   {service.description}
                 </p>
                 <div className="flex flex-wrap gap-3 pt-1">

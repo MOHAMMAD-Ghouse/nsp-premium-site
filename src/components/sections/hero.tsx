@@ -5,7 +5,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink text-cream"
+      className="relative flex min-h-[100svh] scroll-mt-0 items-end overflow-hidden bg-ink text-cream"
     >
       <Image
         src="/images/hero.jpg"

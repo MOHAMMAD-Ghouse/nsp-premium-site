@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { SERVICES, whatsappUrl } from "@/lib/constants";
-import { cn } from "@/lib/utils";
 
 type FormState = {
   fullName: string;
@@ -210,9 +209,7 @@ export function BookingForm() {
             aria-required="true"
             value={form.service}
             onChange={(e) => update("service", e.target.value)}
-            className={cn(
-              "h-10 w-full rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
-            )}
+            className="premium-field"
           >
             <option value="" disabled>
               Select a service
@@ -237,9 +234,7 @@ export function BookingForm() {
             aria-required="true"
             value={form.preference}
             onChange={(e) => update("preference", e.target.value)}
-            className={cn(
-              "h-10 w-full rounded-lg border border-input bg-transparent px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
-            )}
+            className="premium-field"
           >
             <option value="" disabled>
               Choose preference

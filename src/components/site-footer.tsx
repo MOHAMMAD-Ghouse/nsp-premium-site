@@ -5,7 +5,7 @@ import { BUSINESS, SERVICES, whatsappUrl } from "@/lib/constants";
 export function SiteFooter() {
   return (
     <footer className="border-t border-gold/20 bg-ink text-cream">
-      <div className="container-wide section-pad grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+      <div className="container-wide section-pad !scroll-mt-0 grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
         <div className="space-y-5 lg:col-span-1">
           <BrandMark tone="dark" />
           <p className="max-w-sm text-sm leading-relaxed text-cream/70">

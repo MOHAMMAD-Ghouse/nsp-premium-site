@@ -21,7 +21,7 @@ export function BrandMark({
       aria-label={`${BUSINESS.name} home`}
     >
       <span
-        className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-gold/60 bg-ink text-[0.7rem] font-display tracking-[0.12em] text-gold"
+        className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-gold/60 bg-ink text-[0.65rem] font-display tracking-[0.12em] text-gold sm:h-11 sm:w-11 sm:text-[0.7rem]"
         aria-hidden
       >
         NSP
@@ -29,7 +29,7 @@ export function BrandMark({
       <span className="flex min-w-0 flex-col leading-tight">
         <span
           className={cn(
-            "font-display text-[0.95rem] font-semibold tracking-[0.14em] sm:text-[1.05rem]",
+            "font-display text-[0.82rem] font-semibold tracking-[0.12em] sm:text-[1.05rem] sm:tracking-[0.14em]",
             text,
           )}
         >
@@ -37,7 +37,7 @@ export function BrandMark({
         </span>
         <span
           className={cn(
-            "text-[0.65rem] font-medium tracking-[0.35em] uppercase",
+            "text-[0.58rem] font-medium tracking-[0.28em] uppercase sm:text-[0.65rem] sm:tracking-[0.35em]",
             sub,
           )}
         >

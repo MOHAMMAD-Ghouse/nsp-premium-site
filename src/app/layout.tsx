@@ -62,7 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en-GB"
       className={`${outfit.variable} ${cormorant.variable} h-full`}
     >
-      <body className="min-h-full font-body text-foreground">
+      <body className="min-h-full pb-24 font-body text-foreground sm:pb-20">
         <JsonLd />
         <SiteHeader />
         <main className="flex-1">{children}</main>

@@ -30,45 +30,45 @@ export function SiteHeader() {
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled
           ? "border-b border-gold/20 bg-ink/95 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-md"
-          : "bg-gradient-to-b from-ink/80 to-transparent py-5",
+          : "bg-gradient-to-b from-ink/80 to-transparent py-4 sm:py-5",
       )}
     >
-      <div className="container-wide flex items-center justify-between gap-4 px-5 sm:px-8 lg:px-12">
-        <BrandMark tone="dark" />
+      <div className="container-wide flex items-center justify-between gap-3 px-4 sm:gap-4 sm:px-8 lg:px-12">
+        <BrandMark tone="dark" className="min-w-0" />
 
         <nav
-          className="hidden items-center gap-1 xl:flex"
+          className="hidden items-center gap-0.5 lg:flex"
           aria-label="Primary"
         >
           {NAV_LINKS.filter((l) => l.href !== "#book").map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-md px-3 py-2 text-[0.72rem] font-medium tracking-[0.16em] text-cream/80 uppercase transition hover:text-gold"
+              className="rounded-md px-2.5 py-2 text-[0.65rem] font-medium tracking-[0.14em] text-cream/80 uppercase transition hover:text-gold xl:px-3 xl:text-[0.72rem] xl:tracking-[0.16em]"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <a
             href="#book"
-            className="hidden rounded-lg bg-gold-gradient px-4 py-2 text-sm font-semibold tracking-[0.14em] text-ink uppercase shadow-[0_8px_24px_rgba(198,160,70,0.35)] transition hover:brightness-110 sm:inline-flex"
+            className="inline-flex rounded-full bg-gold-gradient px-3.5 py-2 text-[0.65rem] font-semibold tracking-[0.14em] text-ink uppercase shadow-[0_8px_24px_rgba(198,160,70,0.35)] transition hover:brightness-110 sm:px-4 sm:text-sm"
           >
             Book Now
           </a>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
-              className="inline-flex size-8 items-center justify-center rounded-lg border border-gold/40 bg-ink/40 text-cream transition hover:bg-ink hover:text-gold xl:hidden"
+              className="inline-flex size-9 items-center justify-center rounded-full border border-gold/40 bg-ink/40 text-cream transition hover:bg-ink hover:text-gold lg:hidden"
               aria-label="Open menu"
             >
               <Menu className="size-5" />
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="border-l border-gold/25 bg-ink text-cream"
+              className="z-[60] border-l border-gold/25 bg-ink text-cream"
             >
               <SheetHeader>
                 <SheetTitle className="font-display text-left text-cream">
@@ -80,7 +80,22 @@ export function SiteHeader() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      const id = link.href.replace("#", "");
+                      setOpen(false);
+                      window.setTimeout(() => {
+                        const target = document.getElementById(id);
+                        if (!target) return;
+                        const headerOffset = 88;
+                        const top =
+                          target.getBoundingClientRect().top +
+                          window.scrollY -
+                          headerOffset;
+                        window.scrollTo({ top, behavior: "smooth" });
+                        window.history.replaceState(null, "", link.href);
+                      }, 260);
+                    }}
                     className="rounded-lg px-3 py-3 text-sm tracking-[0.12em] text-cream/90 uppercase transition hover:bg-cream/5 hover:text-gold"
                   >
                     {link.label}
